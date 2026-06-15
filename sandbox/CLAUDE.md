@@ -61,7 +61,8 @@ Beans are managed by the `beans` CLI — never `Edit` or `Write` a bean file
 directly. The factory-pipeline Skills compose like this:
 
 1. **Planner** appends a `## High-Level Plan` section (approach + AC, no
-   file paths) via `beans update <id> --body-append "..."`.
+   file paths) by fetching the existing body, appending locally, then writing
+   it back via `beans update <id> --body-file <file>`.
 2. **Refine** appends a `## Refined Plan` section (files + signatures + test
    sketch) via the same mechanism. Set status to `in-progress` when work
    starts: `beans update <id> -s in-progress`.
